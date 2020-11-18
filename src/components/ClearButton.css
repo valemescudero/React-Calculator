@@ -1,0 +1,16 @@
+.clear-btn{
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    font-size: 2em;
+    background-color: #bdb8b2;
+    color: rgb(41, 41, 41);
+    flex: 1;
+    border: 1px solid #dbdad6; 
+    margin: 0.1em;
+    -moz-border-radius: 15px; /* for Mozilla support */
+    -webkit-border-radius: 15px; /* for Chrome support */
+    border-radius: 15px;
+}
