@@ -2,9 +2,31 @@ import React from "react";
 import "./Button.css";
 
 const isOperator = val => {
-    return !isNaN(val) || val === '.' || val === 'AC' || val === '%' || val === '±';
+    const operators = ['.', 'AC', '%', '±']
+    //includes devuelve true | false cuadno buscamos un valor determinado dentro de un array :)
+    return !isNaN(val) || operators.includes(val);
 };
 const isZero = val => {
-    return val === '0';
+    // sabemos que 1 === true, entonces !0 === true, caso contrario, es false
+    return !val;
 };
-export const Button = props => (<div className={`button-wrapper ${isOperator(props.children) ? null : "operator"} ${isZero(props.children) ? null : "zero"}`} onClick={() => props.handleClick(props.children)}>{props.children}</div>);
+
+export const Button = props => {
+
+    //con esta sintaxis, desestructuramos al objeto {prop} y tomamos directamente valores
+    const { children } = props
+
+    const properties = {
+        className: `button-wrapper ${isOperator(children) ? null : "operator"} ${isZero(children) ? null : "zero"}`,
+        onClick: () => props.handleClick(children)
+    }
+
+    return(
+        <div {...properties}>
+            {props.children}
+        </div>
+    );
+}
+
+
+
