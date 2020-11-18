@@ -90,7 +90,7 @@ class App extends Component {
             <ClearButton handleClick={()=>this.clear()}>AC</ClearButton>
             <ClearButton handleClick={()=>this.delete()}>◀</ClearButton>
             <Button handleClick={()=>this.sign()}>±</Button>
-            <Button handleClick={()=>this.handle('/')}>÷</Button>
+            <Button handleClick={this.handle}>/</Button>
           </div>
           <div className="row">
             <Button handleClick={this.handle}>7</Button>
