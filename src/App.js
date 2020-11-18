@@ -58,6 +58,15 @@ class App extends Component {
     }
   };
 
+  handleMinus = val => {
+    let expr =  String(this.state.input);
+    if(this.state.error === 1){
+      this.setState({ input: String(val), error : 0  });
+    } else if( !(expr.charAt(expr.length-1) === '-' || expr.charAt(expr.length-1) === '+' || expr.charAt(expr.length-1) === '.') ){
+      this.setState({ input: expr + String(val) });
+    }
+  };
+
   clear = () => {
     this.setState({ input:'0' });
   };
@@ -87,9 +96,8 @@ class App extends Component {
 
   sign = () => {
     let expr = this.state.input * -1;
-    if (isNaN(expr)){
-      this.setState({ input: "ERROR", error: 1 });
-    } else {
+
+    if (!(String(expr) === "NaN")){
       this.setState({
         input: expr
       });
@@ -118,6 +126,7 @@ class App extends Component {
             <ClearButton handleClick={()=>this.clear()}>AC</ClearButton>
             <ClearButton handleClick={()=>this.delete()}>◀</ClearButton>
             <Button handleClick={()=>this.sign()}>±</Button>
+
             <Button handleClick={()=>this.handle('/')}>÷</Button>
           </Row>
           
