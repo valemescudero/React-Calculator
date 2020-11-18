@@ -15,6 +15,7 @@
     -moz-border-radius: 15px; /* for Mozilla support */
     -webkit-border-radius: 15px; /* for Chrome support */
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .operator {

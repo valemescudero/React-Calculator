@@ -25,6 +25,15 @@ class App extends Component {
     }
   };
 
+  handleMinus = val => {
+    let expr =  String(this.state.input);
+    if(this.state.error === 1){
+      this.setState({ input: String(val), error : 0  });
+    } else if( !(expr.charAt(expr.length-1) === '-' || expr.charAt(expr.length-1) === '+' || expr.charAt(expr.length-1) === '.') ){
+      this.setState({ input: expr + String(val) });
+    }
+  };
+
   clear = () => {
     this.setState({ input:'0' });
   };
@@ -53,9 +62,7 @@ class App extends Component {
 
   sign = () => {
     let expr = this.state.input * -1;
-    if (String(expr) === "NaN"){
-      this.setState({ input: "ERROR", error: 1 });
-    } else {
+    if (!(String(expr) === "NaN")){
       this.setState({
         input: expr
       });
@@ -95,7 +102,7 @@ class App extends Component {
             <Button handleClick={this.handle}>4</Button>
             <Button handleClick={this.handle}>5</Button>
             <Button handleClick={this.handle}>6</Button>
-            <Button handleClick={this.handle}>-</Button>
+            <Button handleClick={()=>this.handleMinus('-')}>-</Button>
           </div>
           <div className="row">
             <Button handleClick={this.handle}>1</Button>
