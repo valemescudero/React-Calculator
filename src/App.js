@@ -20,7 +20,7 @@ class App extends Component {
     let expr =  String(this.state.input);
     if(this.state.error === 1){
       this.setState({ input: !isNaN(val) ? String(val) : '0', error : 0  });
-    } else if( !((isNaN(val) || val === '0') && ((isNaN(expr.charAt(expr.length-1))) || expr === '')) ){
+    } else if( !((isNaN(val)) && ((isNaN(expr.charAt(expr.length-1))) || expr === '')) ){
       this.setState({ input: expr === '0' && !isNaN(val) ? String(val) : expr + String(val) });
     }
   };
