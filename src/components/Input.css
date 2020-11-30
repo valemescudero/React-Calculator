@@ -13,4 +13,5 @@
     border: 1px solid #dbdad6;
     border-bottom-color: #272727;
     border-radius: 1%;
+    overflow: hidden;
 }
